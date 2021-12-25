@@ -9,7 +9,6 @@ export function Home() {
 
   function handleAddNewSkill() {
     setmySkills([...mySkills, newSkill]);
-    setNewSkill("");
   }
 
   return (
@@ -21,10 +20,10 @@ export function Home() {
         placeholderTextColor="#555"
         onChangeText={setNewSkill}
       />
-      <Button />
+      <Button onPress={handleAddNewSkill} />
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
-      {mySkills.map((skill, idx) => (
-        <SkillCard />
+      {mySkills.map((skill) => (
+        <SkillCard skill={skill} />
       ))}
     </View>
   );
